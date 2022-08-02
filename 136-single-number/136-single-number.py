@@ -3,5 +3,6 @@ class Solution:
         res = 0
         
         for n in nums:
-            res = n ^ res
+            res ^= n # res is XORed with n
+                     # XOR done with same number gives all zeros
         return res
