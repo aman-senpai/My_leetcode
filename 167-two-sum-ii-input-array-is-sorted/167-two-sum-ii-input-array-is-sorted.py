@@ -4,10 +4,11 @@ class Solution:
         r = len(nums) - 1
         
         while l <= r:
-            if nums[l] + nums[r] == target:
+            curSum = nums[l] + nums[r]
+            if curSum == target:
                 return [l + 1, r + 1]
-            elif nums[l] + nums[r] > target:
+            elif curSum > target:
                 r -= 1
-            elif nums[l] + nums[r] < target:
+            elif curSum < target:
                 l += 1
         
