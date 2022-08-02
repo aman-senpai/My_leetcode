@@ -1,8 +1,19 @@
 class Solution:
     def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
-        arr = []
-        for r in matrix:
-            for e in r:
-                arr.append(e)
-        arr.sort()
-        return arr[k - 1]
+        l, r, N = matrix[0][0], matrix[-1][-1], len(matrix)
+        
+        def less_k(m):
+            cnt = 0
+            for r in range(N):
+                x = bisect_right(matrix[r], m)
+                cnt += x
+            return cnt
+        
+        while l < r:
+            mid = (l + r) // 2
+            if less_k(mid) < k:
+                l = mid + 1
+            else:
+                r = mid
+                
+        return l
