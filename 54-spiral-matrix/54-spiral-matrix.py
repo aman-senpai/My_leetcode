@@ -1,8 +1,10 @@
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         res = []
-        left, right = 0, len(matrix[0])
+        left, right = 0, len(matrix[0]) 
+        # right element is one less in python range funciton excludes the last element so we are safe in taking the len
         top, bottom = 0, len(matrix)
+        # same for the bottom
 
         while left < right and top < bottom:
             # get every i in the top row
