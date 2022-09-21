@@ -1,12 +1,15 @@
 class Solution {
     public int firstUniqChar(String s) {
-        for (char c : s.toCharArray()) {
-            int index = s.indexOf(c);
-            int lastIndex = s.lastIndexOf(c);
-            if (index == lastIndex)
-                return index;
+                if (s.length() == 0)    return -1;
+        int[] store = new int[26];
+        for (char ch : s.toCharArray()) {
+            store[ch - 'a']++;
         }
-            return -1;
+        for (int i = 0; i < s.length(); i++) {
+            if(store[s.charAt(i) - 'a'] == 1){
+                return i;
+            }
+        }
+        return -1;
     }
-
 }
